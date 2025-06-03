@@ -3,7 +3,7 @@ package com.aref.vector_search;
 import org.springframework.data.domain.*;
 import org.springframework.data.repository.Repository;
 
-public interface ArticleRepository extends Repository<Integer, Article> {
+public interface ArticleRepository extends Repository<Article, Integer> {
 
     SearchResults<Article> searchTop10ByTitleAndEmbeddingNear(String title, Vector vector,
                                                                  Score scoreThreshold);
