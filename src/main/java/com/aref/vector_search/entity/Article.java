@@ -21,6 +21,7 @@ public class Article {
 
     @JdbcTypeCode(SqlTypes.VECTOR)
     @Array(length = 5)
+    @Column(columnDefinition = "vector(384)") // pgvector
     private Vector embedding;
 
     public Article(String title, String content, Vector embedding) {
