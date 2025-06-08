@@ -1,6 +1,7 @@
 package com.aref.vector_search.model;
 
 public class ArticleCreateRequest {
+
     private String title;
 
     private String content;

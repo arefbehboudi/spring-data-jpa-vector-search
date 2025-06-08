@@ -3,6 +3,7 @@ package com.aref.vector_search.service;
 import java.util.List;
 
 import org.springframework.data.domain.ScoringFunction;
+import org.springframework.data.domain.SearchResults;
 import org.springframework.data.domain.Similarity;
 import org.springframework.data.domain.Vector;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,11 @@ public class ArticleService {
         List<Double> embeddings = embeddingService.embedd(request.getTitle());
         Vector vector = Vector.of(embeddings);
         articleRepository.save(new Article(request.getTitle(), request.getContent(), vector));
+    }
+
+    public SearchResults<Article> search(String query) {
+        List<Double> embedding = embeddingService.embedd(query);
+        Vector vector = Vector.of(embedding);
+        return articleRepository.searchByEmbeddingNear(vector, Similarity.of(0.8, ScoringFunction.cosine()));
     }
 }
