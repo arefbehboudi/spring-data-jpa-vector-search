@@ -11,4 +11,5 @@ public class BaseResponse {
     public static BaseResponse success() {
         return new BaseResponse(true);
     }
+    
 }
