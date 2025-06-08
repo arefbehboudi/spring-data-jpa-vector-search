@@ -1,4 +1,3 @@
----
 
 # 🧠 Spring Boot + Vector Search + Text Embedding API
 
@@ -20,7 +19,7 @@ A simple open-source project to find similar articles using **vector search** wi
 ```text
 project-root/
 │
-├── src/                  # Spring Boot project
+├── src/                      # Spring Boot project
 │   └── main/java/...
 │
 ├── embedding-api/            # Python service for embeddings
